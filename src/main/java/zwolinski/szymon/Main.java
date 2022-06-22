@@ -1,19 +1,58 @@
 package zwolinski.szymon;
 
 import zwolinski.szymon.repository.InMemoryClientRepository;
+import zwolinski.szymon.service.LibraryService;
 
+import java.sql.SQLOutput;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
+    final static Set<Client> set = new HashSet<>();
+    final static InMemoryClientRepository inMemoryClientRepository = new InMemoryClientRepository(set);
+    final static LibraryService libraryService = new LibraryService(inMemoryClientRepository);
+
     public static void main(String[] args) {
-        Client client1 = new Client("Mark", "Smith", "mark@mail.com");
-        Set<Client> set = new HashSet<>();
-        InMemoryClientRepository inMemoryClientRepository = new InMemoryClientRepository(set);
-        LibraryService libraryService = new LibraryService(inMemoryClientRepository);
-        libraryService.add(client1);
-        Client searchedClient = new Client("Mark", "Smith", "mark@mail.com");
-        System.out.println(libraryService.findByEmail(searchedClient.getEmail()));
-        System.out.println(libraryService.findByName(searchedClient.getName(), searchedClient.getSurname() +  " "));
+        Main.runService();
+    }
+    private static void runService(){
+        boolean isRunning = true;
+        while(isRunning){
+            System.out.println("Welcome to library! What do you want to do?\nAdd client (1)\nSearch client by email (2)\nSearch book (3)\nExit application (4)");
+            Scanner scanner = new Scanner(System.in);
+            int option = scanner.nextInt();
+
+            switch (option){
+                case 1 -> {
+                    System.out.println("Enter name: ");
+                    String name = scanner.next();
+                    System.out.println("Enter surname: ");
+                    String surname = scanner.next();
+                    System.out.println("Enter email: ");
+                    String email = scanner.next();
+
+                    Client client = new Client(name, surname, email);
+                    libraryService.add(client);
+                }
+                case 2 -> {
+                    System.out.println("Enter email: ");
+                    String email = scanner.next();
+                    System.out.println(libraryService.findByEmail(email));
+                }
+                case 3 -> {
+                    System.out.println("Enter book title: ");
+                    String title = scanner.next();
+                    System.out.println("Searching by book title not implemented yet");
+                }
+                case 4 -> {
+                    System.out.println("End of an program!");
+                    isRunning = false;
+                }
+                default -> {
+                    System.out.println("Wrong input!");
+                }
+            }
+        }
     }
 }

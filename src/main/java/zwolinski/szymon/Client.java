@@ -8,6 +8,10 @@ public class Client {
     private String email;
     private long identificationNumber;
 
+    public Client(String name, String surname) {
+        this(name, surname, "not given");
+    }
+
     public Client(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
@@ -31,6 +35,7 @@ public class Client {
         return "Client{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", email= '" + email + '\'' +
                 ", identificationNumber=" + identificationNumber +
                 '}';
     }
@@ -40,7 +45,10 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return identificationNumber == client.identificationNumber && Objects.equals(name, client.name) && Objects.equals(surname, client.surname) && Objects.equals(email, client.email);
+        return identificationNumber == client.identificationNumber &&
+                Objects.equals(name, client.name) &&
+                Objects.equals(surname, client.surname) &&
+                Objects.equals(email, client.email);
     }
 
     @Override
