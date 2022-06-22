@@ -1,5 +1,6 @@
-package zwolinski.szymon;
+package zwolinski.szymon.service;
 
+import zwolinski.szymon.Client;
 import zwolinski.szymon.repository.ClientRepository;
 
 public class LibraryService {

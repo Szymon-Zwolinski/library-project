@@ -1,7 +1,6 @@
 package zwolinski.szymon.repository;
 
 import zwolinski.szymon.Client;
-
 import java.util.Objects;
 import java.util.Set;
 
