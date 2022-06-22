@@ -1,14 +1,14 @@
 package zwolinski.szymon;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Book {
     private String title;
     private String author;
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
-    public Book(String title, String author, Date releaseDate) {
+    public Book(String title, String author, LocalDate releaseDate) {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;

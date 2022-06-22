@@ -33,5 +33,6 @@ public class InMemoryBookRepository implements BookRepository{
         for (Book b: filteredBooks){
             System.out.println(b);
         }
+        System.out.println();
     }
 }
