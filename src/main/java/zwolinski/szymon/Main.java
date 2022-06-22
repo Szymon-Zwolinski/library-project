@@ -19,7 +19,7 @@ public class Main {
     private static void runService(){
         boolean isRunning = true;
         while(isRunning){
-            System.out.println("Welcome to library! What do you want to do?\nAdd client (1)\nSearch client by email (2)\nSearch book (3)\nExit application (4)");
+            System.out.println("Welcome to library! What do you want to do?\nAdd client (1)\nSearch client by email (4)\nSearch book (4)\nExit application (5)");
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
 
@@ -41,11 +41,18 @@ public class Main {
                     System.out.println(libraryService.findByEmail(email));
                 }
                 case 3 -> {
+                    System.out.println("Enter name: ");
+                    String name = scanner.next();
+                    System.out.println("Enter surname: ");
+                    String surname = scanner.next();
+                    System.out.println(libraryService.findByName(name, surname));
+                }
+                case 4 -> {
                     System.out.println("Enter book title: ");
                     String title = scanner.next();
                     System.out.println("Searching by book title not implemented yet");
                 }
-                case 4 -> {
+                case 5 -> {
                     System.out.println("End of an program!");
                     isRunning = false;
                 }
