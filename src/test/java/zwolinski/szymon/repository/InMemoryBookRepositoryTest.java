@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zwolinski.szymon.Book;
 import zwolinski.szymon.service.LibraryService;
-import java.util.HashSet;
 
 public class InMemoryBookRepositoryTest {
     LibraryService libraryService;
@@ -14,7 +13,7 @@ public class InMemoryBookRepositoryTest {
         libraryService = new LibraryService();
     }
     @Test
-    public void addBook_correctBook_addedCorrectly(){
+    public void addBook_correctBook_addedCorrectly() {
         //given
         Book givenBook = new Book("Harry Potter and the Order of the Phoenix", "J.K. Rowling", "2003");
         //when
