@@ -1,17 +1,18 @@
 package zwolinski.szymon;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Objects;
 
 public class Book {
     private String title;
     private String author;
-    private LocalDate releaseDate;
+    private Year releaseDate;
 
-    public Book(String title, String author, LocalDate releaseDate) {
+    public Book(String title, String author, String releaseDate) {
         this.title = title;
         this.author = author;
-        this.releaseDate = releaseDate;
+        this.releaseDate = Year.parse(releaseDate);
     }
 
     public String getTitle() {
