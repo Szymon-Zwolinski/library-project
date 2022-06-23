@@ -6,8 +6,7 @@ import zwolinski.szymon.repository.BookRepository;
 import zwolinski.szymon.repository.ClientRepository;
 import zwolinski.szymon.repository.InMemoryBookRepository;
 import zwolinski.szymon.repository.InMemoryClientRepository;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -87,11 +86,10 @@ public class LibraryService {
                     String title = scanner.next();
                     System.out.println("Enter author: ");
                     String author = scanner.next();
-                    System.out.println("Enter release date in format - mm/dd/yyyy: ");
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-                    LocalDate date = LocalDate.parse(scanner.next(), formatter);
+                    System.out.println("Enter release date in format - yyyy: ");
+                    String year = scanner.next();
 
-                    Book book = new Book(title, author, date);
+                    Book book = new Book(title, author, year);
                     addBook(book);
                 }
                 case 5 -> {

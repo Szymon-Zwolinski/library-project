@@ -1,11 +1,11 @@
 package zwolinski.szymon.repository;
 
 import zwolinski.szymon.Book;
+import zwolinski.szymon.repository.BookRepository;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class InMemoryBookRepository implements BookRepository{
+public class InMemoryBookRepository implements BookRepository {
     Set<Book> books;
 
     public InMemoryBookRepository(Set<Book> books) {
